@@ -74,4 +74,42 @@
         </div><br>
      
     </div>
+    <script>
+        var ids = ["img0", "img1", "img2", "img3", "img4",
+            "img5", "img6", "img7", "img8", "img9",
+            "img10", "img11", "img12", "img13", "img14",
+            "img15", "img16", "img17", "img18", "img19",
+            "img20", "img21", "img22", "img23", "img24",
+        ];
+        var triesCount = 0;
+        var  animalLocation = 13
+        function check(position) {
+            imgId = ids[arguments[0]];
+            image = document.getElementById(imgId);
+            if (position == 18) {
+
+                function distance(pos1, pos2) {
+            var pos1 = arguments[0];
+            var pos2 = arguments[1];
+            var v = pos1 - pos2;
+            if (v == 0) {
+                return d = 0;
+            } else {
+                v = v / 5;
+                v = v.toString();
+                var a = v.split(".");
+                var h = 0;
+                v = Math.abs(a[0]);
+                if (a[1] == 0) {
+                    h = 1;
+                } else {
+                    h = a[1] - 1;
+                }
+                return v + h;
+            }
+        }
+    }
+}
+    </script>
+
 </body>
