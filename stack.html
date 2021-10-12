@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flex stack</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
+        
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+        /* Responsive layout */
+        
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Deekshitha Bichinaepally builds a stack</h1>
+    <label for="text">Stack elements</label>
+    <input type="text" id="text" name="form1_text"> <br><br>
+
+    <div class="flex-container hstack gap-3" id="target">
+        <div class="stack">row item 1</div>
+        <div class="stack">row item 2</div>
+        <div class="stack">row item 3</div>
+    </div>
+
+
+    <p> Press the button to create an new element of type div and then add it to the container.
+    </p>
+    <button onclick="makeNewDiv()">Push value</button>
+
+
+</body>
+<script>
+    function makeNewDiv() {
+        /* make the div and its text */
+        const element = document.createElement("div");
+        element.innerHTML = document.getElementById("text").value;
+        element.setAttribute('class', 'stack');
+        element.style.color = "orange"
+
+        var stackItems = document.getElementsByClassName("stack");
+        len = stackItems.length;
+        var r = 0;
+        if (len > 8) {
+            for (var k = 0; k < 8; k++) {
+                if (listyItems[k].innerHTML == element.innerHTML) {
+                    listyItems[k].remove();
+                    console.log("We are getting rid of duplicates");
+                    r = 1;
+                    break;
+                }
+            }
+            if (r == 0) {
+                i = Math.floor((Math.random() * 9) + 0);
+                listyItems[i].remove();
+            }
+        }
+        /* add it to the container */
+        document.getElementById('target').appendChild(element)
+
+    }
+</script>
+
+</html>
